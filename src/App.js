@@ -15,8 +15,9 @@ function App() {
   const [edited, setEdited] = useState({});
 
   function addHotel(newHotel) {
+    const id = HotelService.createHotel(newHotel);
+    newHotel.id = id;
     setHotels([...hotels, newHotel]);
-    HotelService.createHotel(newHotel);
   }
   function removeHotel(removedHotel) {
     setHotels(hotels.filter((p) => p.id !== removedHotel.id));

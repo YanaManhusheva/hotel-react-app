@@ -27,7 +27,6 @@ export default class HotelService {
 
   static async createHotel(newHotel) {
     const body = {
-      id: newHotel.d,
       name: newHotel.name,
       latitude: newHotel.lat,
       longitude: newHotel.lon,
