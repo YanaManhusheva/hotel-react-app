@@ -26,8 +26,16 @@ function App() {
     setShowForm(!showForm);
   }
   function editHotel(editedHotel) {
-    let newArr = hotels;
-    newArr.map((hotel) => {
+    let newArr = [];
+    hotels.map((hotel) => {
+      if (hotel.id === editedHotel.id) {
+        hotel.name = editedHotel.name;
+        hotel.lat = editedHotel.lat;
+        hotel.lon = editedHotel.lon;
+      }
+      newArr.push(hotel);
+    });
+    /* newArr.map((hotel) => {
       if (hotel.id === editedHotel.id) {
         newArr[hotel.id] = {
           id: editedHotel.id,
@@ -36,10 +44,10 @@ function App() {
           lon: editedHotel.lon,
         };
       }
-      HotelService.updateHotel(editedHotel);
-    });
+    });*/
 
     setHotels([...newArr]);
+    HotelService.updateHotel(editedHotel);
   }
 
   /*useEffect(() => {

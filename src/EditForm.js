@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function EditForm(props) {
+  console.log(props);
   const [hotelName, setHotelName] = useState("");
   const [hotelLat, setHotelLat] = useState("");
   const [hotelLon, setHotelLon] = useState("");
