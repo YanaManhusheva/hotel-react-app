@@ -3,7 +3,7 @@ import axios from "axios";
 export default class HotelService {
   static async getAll() {
     try {
-      const apiURL = "";
+      const apiURL = "/hotels";
       const response = await axios.get(apiURL);
       return response.data;
     } catch (e) {
@@ -17,10 +17,10 @@ export default class HotelService {
 
   static async updateHotel(editedHotel) {
     const body = {
-      id: editedHotel.d,
+      id: editedHotel.id,
       name: editedHotel.name,
-      lat: editedHotel.lat,
-      lon: editedHotel.lon,
+      latitude: editedHotel.lat,
+      longitude: editedHotel.lon,
     };
     await axios.put(`/hotels`, body);
   }
@@ -29,8 +29,8 @@ export default class HotelService {
     const body = {
       id: newHotel.d,
       name: newHotel.name,
-      lat: newHotel.lat,
-      lon: newHotel.lon,
+      latitude: newHotel.lat,
+      longitude: newHotel.lon,
     };
     await axios.post(`/hotels`, body).then((response) => {
       console.log(response.data);
