@@ -20,13 +20,14 @@ function App() {
     setHotels([...hotels, newHotel]);
   }
   function removeHotel(removedHotel) {
-    setHotels(hotels.filter((p) => p.id !== removedHotel.id));
     HotelService.deleteHotel(removeHotel.id);
+    setHotels(hotels.filter((p) => p.id !== removedHotel.id));
   }
   function addNewHotel() {
     setShowForm(!showForm);
   }
   function editHotel(editedHotel) {
+    HotelService.updateHotel(editedHotel);
     let newArr = [];
     hotels.map((hotel) => {
       if (hotel.id === editedHotel.id) {
@@ -48,7 +49,6 @@ function App() {
     });*/
 
     setHotels([...newArr]);
-    HotelService.updateHotel(editedHotel);
   }
 
   /*useEffect(() => {
